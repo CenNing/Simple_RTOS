@@ -17,7 +17,7 @@ int main(void)
     USART1_Init();
     LED_Init();
 
-    printf("Producer(T5, prio=2) --> Queue(32B x 8) --> Consumer(T4, prio=4)\r\n\r\n");
+    printf("硬件初始化完成\r\n");
 
     // ---------- 初始化消息队列 ----------
     queue_init(&data_queue, queue_buffer, 32, 8);   // 32字节×8条消息
@@ -30,7 +30,7 @@ int main(void)
     TASK_ADDR* init_list[] = { &task_4, &task_5, &task_idle };
     for (int i = 0; i < TASK_COUNT; i++) task_list[i] = init_list[i];
 
-    // ---------- 启动 RTOS 内核（永不返回） ----------
+    // ---------- 启动 RTOS 内核 ----------
     task_start_scheduler();
 
     while (1) { }
