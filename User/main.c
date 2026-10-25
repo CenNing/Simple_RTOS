@@ -17,7 +17,6 @@ int main(void)
     USART1_Init();
     LED_Init();
 
-    printf("=== COS RTOS — Message Queue Demo ===\r\n");
     printf("Producer(T5, prio=2) --> Queue(32B x 8) --> Consumer(T4, prio=4)\r\n\r\n");
 
     // ---------- 初始化消息队列 ----------
